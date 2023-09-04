@@ -28,7 +28,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import EmailIcon from "@mui/icons-material/Email";
-import MenuIcon from "@mui/icons-material/Menu";
+// import MenuIcon from "@mui/icons-material/Menu";
 
 const customTypographyStyle = {
   fontFamily: "'Courier New'",
@@ -38,42 +38,42 @@ const englishBoxData = [
   {
     id: 1,
     text: "Social Media Text Content",
-    price: "5€/piece + TAX 24%",
+    price: "5€/piece + VAT 24%",
     hoverText:
       "Includes vocabulary, grammar, punctuation, sentence structure, proofreading and corrections, as well as any fluency improvement suggestions for one publication. Up to 140 characters.",
   },
   {
     id: 2,
     text: "CV",
-    price: "20€/page + TAX 24%",
+    price: "20€/page + VAT 24%",
     hoverText:
       "Includes vocabulary, grammar, punctuation, and sentence structure proofreading and corrections, as well as any fluency improvement suggestions.",
   },
   {
     id: 3,
     text: "Content Proofreading",
-    price: "20€/page + Tax 24%",
+    price: "20€/page + VAT 24%",
     hoverText:
       "Proofreading and correction of various types of text such as articles, content texts, educational materials, advertisements, product descriptions, and menus. Includes vocabulary, grammar, punctuation, and sentence structure proofreading and corrections, as well as any fluency improvement suggestions. Title pages are free(2-3 words)",
   },
   {
     id: 4,
     text: "Web Proofreading",
-    price: "37€/h + ALV 24%",
+    price: "37€/h + VAT 24%",
     hoverText:
       "The website language checking service ensures the correct spelling of your company's communication channel. The service can be conveniently performed directly on the company's website at the customer's request. Includes vocabulary, grammar, punctuation, and sentence structure proofreading and corrections, as well as any fluency improvement suggestions. Request an accurate price estimate! ",
   },
   {
     id: 5,
     text: "Mentoring & Coaching",
-    price: "37€ + TAX 24% Groups: Request a quote",
+    price: "37€ + VAT 24% Groups: Request a quote",
     hoverText:
       "Tailored native conversation and pronunciation coaching for groups and individuals, offered both in-person and online according to the customer's needs.",
   },
   {
     id: 6,
     text: "Voice Over",
-    price: "37€ + TAX 24%",
+    price: "37€ + VAT 24%",
     hoverText:
       "Native text-to-speech service for various types of texts in English or Spanish.",
   },
@@ -131,34 +131,34 @@ function App() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [drawerOpen, setDrawerOpen] = useState(false);
 
-  const drawerList = (
-    <List>
-      <ListItem>
-        <Button color="inherit" href="#about-us">
-          {language === "en" ? "About Us" : "Meistä"}
-        </Button>
-      </ListItem>
-      <ListItem>
-        <Button color="inherit" href="#pricing">
-          {language === "en" ? "Pricing" : "Hinnasto"}
-        </Button>
-      </ListItem>
-      <ListItem>
-        <Button color="inherit" href="#contacts">
-          {language === "en" ? "Contact" : "Ota yhteyttä"}
-        </Button>
-      </ListItem>
-      <ListItem>
-        <Button color="inherit" href="#work">
-          {language === "en" ? "Clients" : "Asiakkaitamme"}
-        </Button>
-      </ListItem>
-    </List>
-  );
+  // const drawerList = (
+  //   <List>
+  //     <ListItem>
+  //       <Button color="inherit" href="#about-us">
+  //         {language === "en" ? "About Us" : "Meistä"}
+  //       </Button>
+  //     </ListItem>
+  //     <ListItem>
+  //       <Button color="inherit" href="#pricing">
+  //         {language === "en" ? "Pricing" : "Hinnasto"}
+  //       </Button>
+  //     </ListItem>
+  //     <ListItem>
+  //       <Button color="inherit" href="#contacts">
+  //         {language === "en" ? "Contact" : "Ota yhteyttä"}
+  //       </Button>
+  //     </ListItem>
+  //     <ListItem>
+  //       <Button color="inherit" href="#work">
+  //         {language === "en" ? "Clients" : "Asiakkaitamme"}
+  //       </Button>
+  //     </ListItem>
+  //   </List>
+  // );
 
-  const handleDrawerToggle = () => {
-    setDrawerOpen(!drawerOpen);
-  };
+  // const handleDrawerToggle = () => {
+  //   setDrawerOpen(!drawerOpen);
+  // };
 
   const images = [
     { src: mau, alt: "Company 1 Logo", width: "400px", height: "100px" },
@@ -192,6 +192,8 @@ function App() {
     };
   }, []);
 
+  const tabNamesClass = language === "en" ? "tab-names-en" : "tab-names-fi";
+
   return (
     <div className={`App ${isStickyAppBar ? "sticky-app-bar" : ""}`}>
       <AppBar
@@ -217,13 +219,13 @@ function App() {
             color="inherit"
             aria-label="menu"
             className="hamburger"
-            onClick={handleDrawerToggle}
+            // onClick={handleDrawerToggle}
             style={{
               display: "none",
               "@media (max-width: 600px)": { display: "block" },
             }}
           >
-            <MenuIcon />
+            {/* <MenuIcon /> */}
           </IconButton>
           <Button color="inherit" onClick={toggleLanguage}>
             {language === "en" ? "Suomeksi" : "In English"}
@@ -252,9 +254,9 @@ function App() {
             </Button>
           </Box>
         </Toolbar>
-        <Drawer anchor="left" open={drawerOpen} onClose={handleDrawerToggle}>
+        {/* <Drawer anchor="left" open={drawerOpen} onClose={handleDrawerToggle}>
           {drawerList}
-        </Drawer>
+        </Drawer> */}
       </AppBar>
       <style jsx global>{`
         @media (max-width: 600px) {
@@ -300,7 +302,7 @@ function App() {
             <Box>
               <Typography style={customTypographyStyle} component="span">
                 {language === "en" ? (
-                  "Here's some brief information about our company. We strive to deliver the best service and make our customers happy."
+                  "Providing native English and Spanish proofreading. Language verification services are provided quickly and professionally. Tailored services are available for businesses and professionals from various fields, social media accounts, and individuals. Comprehensive text care includes not only grammar and vocabulary spelling but also the correction of articles, prepositions, and punctuation. Translation text can also be refined according to customer needs if necessary"
                 ) : language === "fi" ? (
                   <>
                     Natiivit englannin- ja espanjan kielen oikoluku- ja
@@ -316,7 +318,7 @@ function App() {
                     sopivaksi.
                   </>
                 ) : (
-                  "Here's some brief information about our company. We strive to deliver the best service and make our customers happy."
+                  "Providing native English and Spanish proofreading. Checking services are provided quickly and professionally. Tailored services are available for businesses and professionals from various fields, social media accounts, and individuals. Comprehensive text care includes not only grammar and vocabulary spelling but also the correction of articles, prepositions, and punctuation. Translation text can also be refined according to customer needs if necessary"
                 )}
               </Typography>
             </Box>
