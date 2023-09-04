@@ -10,18 +10,24 @@ import {
   Grid,
   Link,
   Paper,
+  Drawer,
+  List,
+  ListItem,
+  IconButton,
 } from "@mui/material";
 import logo from "./lounea.png";
 import oimage from "./download.jpeg";
 import simage from "./sanni.jpeg";
 import editologo from "./edito.png";
 import mau from "./autokauppias.png";
+import background from "./Background.jpg";
 
 import "./App.css";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import EmailIcon from "@mui/icons-material/Email";
+import MenuIcon from "@mui/icons-material/Menu";
 
 const customTypographyStyle = {
   fontFamily: "'arial', sans-serif",
@@ -117,6 +123,36 @@ function App() {
   const [isStickyAppBar, setIsStickyAppBar] = useState(false);
   const [language, setLanguage] = useState("en");
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [drawerOpen, setDrawerOpen] = useState(false);
+
+  const drawerList = (
+    <List>
+      <ListItem>
+        <Button color="inherit" href="#about-us">
+          {language === "en" ? "About Us" : "Meistä"}
+        </Button>
+      </ListItem>
+      <ListItem>
+        <Button color="inherit" href="#pricing">
+          {language === "en" ? "Pricing" : "Hinnasto"}
+        </Button>
+      </ListItem>
+      <ListItem>
+        <Button color="inherit" href="#contacts">
+          {language === "en" ? "Contact" : "Ota yhteyttä"}
+        </Button>
+      </ListItem>
+      <ListItem>
+        <Button color="inherit" href="#work">
+          {language === "en" ? "Clients" : "Asiakkaitamme"}
+        </Button>
+      </ListItem>
+    </List>
+  );
+
+  const handleDrawerToggle = () => {
+    setDrawerOpen(!drawerOpen);
+  };
 
   const images = [
     { src: mau, alt: "Company 1 Logo", width: "400px", height: "100px" },
@@ -159,7 +195,7 @@ function App() {
           backgroundColor: "#c4929e",
           marginBottom: "10px",
           width: "100%",
-          padding: 0, // Add this line
+          padding: 0,
         }}
       >
         <Toolbar
@@ -170,42 +206,48 @@ function App() {
             flexWrap: "wrap",
           }}
         >
+          <IconButton
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            onClick={handleDrawerToggle}
+            style={{
+              display: "none",
+              "@media (max-width: 600px)": { display: "block" },
+            }}
+          >
+            <MenuIcon />
+          </IconButton>
           <Button color="inherit" onClick={toggleLanguage}>
             {language === "en" ? "Suomeksi" : "In English"}
           </Button>
           <Box
-            style={{ display: "flex", flexDirection: "row", flexWrap: "wrap" }}
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              flexWrap: "wrap",
+              "@media (max-width: 600px)": {
+                display: "none",
+              },
+            }}
           >
-            <Button
-              color="inherit"
-              href="#about-us"
-              style={{ padding: "5px 10px" }}
-            >
+            <Button color="inherit" href="#about-us">
               {language === "en" ? "About Us" : "Meistä"}
             </Button>
-            <Button
-              color="inherit"
-              href="#pricing"
-              style={{ padding: "5px 10px" }}
-            >
+            <Button color="inherit" href="#pricing">
               {language === "en" ? "Pricing" : "Hinnasto"}
             </Button>
-            <Button
-              color="inherit"
-              href="#contacts"
-              style={{ padding: "5px 10px" }}
-            >
+            <Button color="inherit" href="#contacts">
               {language === "en" ? "Contact" : "Ota yhteyttä"}
             </Button>
-            <Button
-              color="inherit"
-              href="#work"
-              style={{ padding: "5px 10px" }}
-            >
+            <Button color="inherit" href="#work">
               {language === "en" ? "Clients" : "Asiakkaitamme"}
             </Button>
           </Box>
         </Toolbar>
+        <Drawer anchor="left" open={drawerOpen} onClose={handleDrawerToggle}>
+          {drawerList}
+        </Drawer>
       </AppBar>
       <style jsx global>{`
         @media (max-width: 600px) {
@@ -216,7 +258,7 @@ function App() {
       `}</style>
       {/* -------------------------------------------------------------------------------------------------------------------------------------------(About Us)------------------------------------------------------------------------------------------------------------------------------------------------------------*/}
       <Container
-        maxWidth="md"
+        maxWidth="lg"
         style={{ paddingBottom: "40px", paddingTop: "40px" }}
       >
         <Paper
@@ -227,14 +269,17 @@ function App() {
             id="about-us"
             display="flex"
             flexDirection={{ xs: "column", sm: "row" }}
-            // Added responsive flexDirection
             justifyContent="space-between"
             alignItems="center"
             padding={2}
-            bgcolor="#272622"
+            style={{
+              backgroundImage: `url(${background})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+            }}
             color="white"
             marginBottom={{ xs: "20px", sm: "0px" }}
-            // Added responsive marginBottom
           >
             <img
               src={editologo}
@@ -246,13 +291,6 @@ function App() {
               }}
             />
             <Box>
-              {/* <Typography variant="h5" style={customTypographyStyle}>
-                {language === "en"
-                  ? "About Us"
-                  : language === "fi"
-                  ? "Meistä"
-                  : "About Us"}
-              </Typography> */}
               <Typography style={customTypographyStyle} component="span">
                 {language === "en" ? (
                   "Here's some brief information about our company. We strive to deliver the best service and make our customers happy."
@@ -337,7 +375,7 @@ function App() {
         {/* -------------------------------------------------------------------------------------------------------------------------------------------(Contacts)------------------------------------------------------------------------------------------------------------------------------------------------------------*/}
         <section id="contacts" style={{ textAlign: "center" }}>
           <Typography variant="h4" mb={2}>
-            {language === "en" ? "Our Contacts" : "Ota yhteyttä"}
+            {language === "en" ? "Contact" : "Ota yhteyttä"}
           </Typography>
           <Grid container spacing={2}>
             <Grid item xs={12} md={6} style={{ textAlign: "center" }}>
@@ -358,7 +396,7 @@ function App() {
                 </Typography>
               </div>
             </Grid>
-            <Grid item xs={12} md={6} style={{ textAlign: "center" }}>
+            {/* <Grid item xs={12} md={6} style={{ textAlign: "center" }}>
               <img
                 src={simage}
                 alt="Sanni Suilamo"
@@ -375,7 +413,7 @@ function App() {
                   <strong>Phone:</strong> +0987654321
                 </Typography>
               </div>
-            </Grid>
+            </Grid> */}
           </Grid>
         </section>
 
