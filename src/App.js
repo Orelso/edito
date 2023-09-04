@@ -14,6 +14,7 @@ import {
   List,
   ListItem,
   IconButton,
+  TextField,
 } from "@mui/material";
 import logo from "./lounea.png";
 import oimage from "./download.jpeg";
@@ -30,46 +31,51 @@ import EmailIcon from "@mui/icons-material/Email";
 import MenuIcon from "@mui/icons-material/Menu";
 
 const customTypographyStyle = {
-  fontFamily: "'arial', sans-serif",
+  fontFamily: "'Courier New'",
 };
 
 const englishBoxData = [
   {
     id: 1,
-    text: "Social Media Post",
-    price: "€ 5",
+    text: "Social Media Text Content",
+    price: "5€/piece + TAX 24%",
     hoverText:
-      "Includes editing and proofreading for one post. Up to 140 characters",
+      "Includes vocabulary, grammar, punctuation, sentence structure, proofreading and corrections, as well as any fluency improvement suggestions for one publication. Up to 140 characters.",
   },
   {
     id: 2,
     text: "CV",
-    price: "€ 25 ",
-    hoverText: "The price is per page",
+    price: "20€/page + TAX 24%",
+    hoverText:
+      "Includes vocabulary, grammar, punctuation, and sentence structure proofreading and corrections, as well as any fluency improvement suggestions.",
   },
   {
     id: 3,
     text: "Content Proofreading",
-    price: "€ 100",
-    hoverText: "Unique graphics for social or web use or brick&morter.",
+    price: "20€/page + Tax 24%",
+    hoverText:
+      "Proofreading and correction of various types of text such as articles, content texts, educational materials, advertisements, product descriptions, and menus. Includes vocabulary, grammar, punctuation, and sentence structure proofreading and corrections, as well as any fluency improvement suggestions. Title pages are free(2-3 words)",
   },
   {
     id: 4,
     text: "Web Proofreading",
-    price: "€ 100",
-    hoverText: "Price is per Page",
+    price: "37€/h + ALV 24%",
+    hoverText:
+      "The website language checking service ensures the correct spelling of your company's communication channel. The service can be conveniently performed directly on the company's website at the customer's request. Includes vocabulary, grammar, punctuation, and sentence structure proofreading and corrections, as well as any fluency improvement suggestions. Request an accurate price estimate! ",
   },
   {
     id: 5,
     text: "Mentoring & Coaching",
-    price: "$40",
-    hoverText: "Price is per Page",
+    price: "37€ + TAX 24% Groups: Request a quote",
+    hoverText:
+      "Tailored native conversation and pronunciation coaching for groups and individuals, offered both in-person and online according to the customer's needs.",
   },
   {
     id: 6,
     text: "Voice Over",
-    price: "€ 2000",
-    hoverText: "Single Page mobile/desktop application development.",
+    price: "37€ + TAX 24%",
+    hoverText:
+      "Native text-to-speech service for various types of texts in English or Spanish.",
   },
 ];
 
@@ -107,7 +113,7 @@ const finnishBoxData = [
     text: "Tuutorointi ja valmennus",
     price: "Yksityishenkilöt: 37€ + ALV 24% Ryhmät: Pyydä tarjous.",
     hoverText:
-      "Asiakkaan tarpeisiin räätälöityä natiivia keskustelu- ja ääntämisvalmennusta lähi- ja etäopetuksena ryhmille ja yksityishenkilöille.",
+      "Tailored native conversation and pronunciation coaching for groups and individuals, offered both in-person and online according to the customer's needs.",
   },
   {
     id: 6,
@@ -210,6 +216,7 @@ function App() {
             edge="start"
             color="inherit"
             aria-label="menu"
+            className="hamburger"
             onClick={handleDrawerToggle}
             style={{
               display: "none",
@@ -334,7 +341,7 @@ function App() {
                     boxShadow: 3,
                     bgcolor: "#272622",
                     color: "white",
-                    fontFamily: " sans-serif",
+                    fontFamily: "Courier New",
                     fontSize: "1.2em",
                     p: 2,
                     cursor: "pointer",
@@ -373,47 +380,103 @@ function App() {
         </section>
 
         {/* -------------------------------------------------------------------------------------------------------------------------------------------(Contacts)------------------------------------------------------------------------------------------------------------------------------------------------------------*/}
-        <section id="contacts" style={{ textAlign: "center" }}>
-          <Typography variant="h4" mb={2}>
+        <section
+          id="contacts"
+          style={{ textAlign: "center", fontFamily: "Courier New" }}
+        >
+          <Typography variant="h4" mb={2} style={{ fontFamily: "Courier New" }}>
             {language === "en" ? "Contact" : "Ota yhteyttä"}
           </Typography>
-          <Grid container spacing={2}>
-            <Grid item xs={12} md={6} style={{ textAlign: "center" }}>
+          <Grid container spacing={2} justifyContent="center">
+            <Grid
+              item
+              xs={12}
+              md={6}
+              style={{ textAlign: "center", fontFamily: "Courier New" }}
+            >
               <img
                 src={oimage}
                 alt="Orelso Vitam"
-                style={{ width: "100px", height: "100px", borderRadius: "50%" }}
+                style={{
+                  width: "100px",
+                  height: "100px",
+                  borderRadius: "50%",
+                  boxShadow: "0 4px 8px 0 black",
+                }}
               />
-              <Typography>
-                <strong>Name:</strong> Orelso Vitam
+              <Typography style={{ fontFamily: "Courier New" }}>
+                <strong>
+                  <Link
+                    href="https://fi.linkedin.com/in/orelso-vitam-56879791"
+                    style={{
+                      fontFamily: "Courier New",
+                      color: "black",
+                    }}
+                    title="Click Me"
+                  >
+                    Orelso Vitam
+                  </Link>
+                </strong>
               </Typography>
-              <Typography>
-                <strong>Email:</strong> editofin@gmail.com
+              <Typography>CEO</Typography>
+              <Typography style={{ fontFamily: "Courier New" }}>
+                <strong>
+                  <Link
+                    href="mailto:editofin@gmail.com"
+                    style={{
+                      fontFamily: "Courier New",
+                      color: "black",
+                    }}
+                    title="Click for more"
+                  >
+                    editofin@gmail.com
+                  </Link>
+                </strong>
               </Typography>
-              <div style={{ marginBottom: "20px" }}>
-                <Typography>
-                  <Link href="tel:+358451243334">+358 45 124 3334</Link>
+              <div style={{ marginBottom: "20px", fontFamily: "Courier New" }}>
+                <Typography style={{ fontFamily: "Courier New" }}>
+                  <Link
+                    href="tel:+358451243334"
+                    style={{
+                      fontFamily: "Courier New",
+                      color: "black",
+                    }}
+                    title="Click Me"
+                  >
+                    +358 45 124 3334
+                  </Link>
+                </Typography>
+              </div>
+              <div style={{ marginTop: "30px", fontFamily: "Courier New" }}>
+                <Typography
+                  id="outlined-multiline-static"
+                  label="Write something about yourself"
+                  multiline
+                  rows={4}
+                  variant="outlined"
+                  style={{ width: "80%", fontFamily: "Courier New" }}
+                >
+                  With a strong educational background and a passion for
+                  technology, I am your go-to professional for a wide array of
+                  services including writing, editing, and proofreading. Based
+                  in Salo, Finland, I bring over seven years of teaching
+                  experience to the table, with roles as an English teacher in
+                  both Salo and Helsinki. My teaching experience extends
+                  internationally as well, having worked in China and the Czech
+                  Republic. This diverse background not only enhances my
+                  language expertise but also deepens my understanding of
+                  different cultures, making me a versatile asset in the field.
+                  My analytical skills are crucial for creating and reviewing
+                  high-quality content. Fluent in both English and Spanish, I
+                  offer a comprehensive range of services such as proofreading,
+                  social media post enhancement, CV refinement, website content
+                  scrutiny, mentoring, language coaching, and voice-over work.
+                  Whether you're a business or an individual, reach out today to
+                  find out how I can take your writing and communication efforts
+                  to the next level.
                 </Typography>
               </div>
             </Grid>
-            {/* <Grid item xs={12} md={6} style={{ textAlign: "center" }}>
-              <img
-                src={simage}
-                alt="Sanni Suilamo"
-                style={{ width: "100px", height: "100px", borderRadius: "50%" }}
-              />
-              <Typography>
-                <strong>Name:</strong> Sanni Suilamo
-              </Typography>
-              <Typography>
-                <strong>Email:</strong> jane.smith@example.com
-              </Typography>
-              <div style={{ marginBottom: "20px" }}>
-                <Typography>
-                  <strong>Phone:</strong> +0987654321
-                </Typography>
-              </div>
-            </Grid> */}
           </Grid>
         </section>
 
@@ -429,7 +492,7 @@ function App() {
               textAlign: "center",
             }}
           >
-            {language === "en" ? "Our References" : "Asiakkaitamme"}
+            {language === "en" ? "Customers" : "Asiakkaitamme"}
           </Typography>
           <Grid container spacing={2}>
             <Grid item xs={12}>
@@ -463,14 +526,11 @@ function App() {
             alignItems="center"
             mb={2}
           >
-            <Link
-              href="mailto:orelso.edito@gmail.com"
-              style={{ margin: "0 10px" }}
-            >
+            <Link href="mailto:editofin@gmail.com" style={{ margin: "0 10px" }}>
               <EmailIcon color="primary" />
             </Link>
             <Link
-              href="https://linkedin.com/in/orelsovitam-56879791"
+              href="https://fi.linkedin.com/in/orelso-vitam-56879791"
               target="_blank"
               rel="noreferrer"
               style={{ margin: "0 10px" }}
@@ -486,7 +546,7 @@ function App() {
               <InstagramIcon color="primary" />
             </Link>
             <Link
-              href="https://www.facebook.com/your-link"
+              href="https://www.facebook.com/profile.php?id=61550854855118"
               target="_blank"
               rel="noreferrer"
               style={{ margin: "0 10px" }}
