@@ -35,7 +35,7 @@ const englishBoxData = [
     text: "Social Media Text Content",
     price: "5€/piece + VAT 24%",
     hoverText:
-      "Includes vocabulary, grammar, punctuation, sentence structure, proofreading and corrections, as well as any fluency improvement suggestions for one publication. Up to 140 characters.",
+      "Includes vocabulary, grammar, punctuation, sentence structure, proofreading and corrections, as well as any fluency improvement suggestions for one publication. Up to 280 characters.",
   },
   {
     id: 2,
@@ -49,7 +49,7 @@ const englishBoxData = [
     text: "Content Proofreading",
     price: "20€/page + VAT 24%",
     hoverText:
-      "Proofreading and correction of various types of text such as articles, content texts, educational materials, advertisements, product descriptions, and menus. Includes vocabulary, grammar, punctuation, and sentence structure proofreading and corrections, as well as any fluency improvement suggestions. Title pages are free(2-3 words)",
+      "Proofreading and correction of various types of text such as articles, content texts, educational materials, advertisements, product descriptions, and menus. Includes vocabulary, grammar, punctuation, and sentence structure proofreading and corrections, as well as any fluency improvement suggestions. Title pages are free",
   },
   {
     id: 4,
@@ -61,14 +61,14 @@ const englishBoxData = [
   {
     id: 5,
     text: "Mentoring & Coaching",
-    price: "37€ + VAT 24% Groups: Request a quote",
+    price: "37€/h + VAT 24%",
     hoverText:
-      "Tailored native conversation and pronunciation coaching for groups and individuals, offered both in-person and online according to the customer's needs.",
+      "Tailored native conversation and pronunciation coaching for groups and individuals, offered both in-person and online according to the customer's needs. *Groups: Request a quote*",
   },
   {
     id: 6,
     text: "Voice Over",
-    price: "37€ + VAT 24%",
+    price: "37€/h + VAT 24%",
     hoverText:
       "Native text-to-speech service for various types of texts in English or Spanish.",
   },
@@ -80,7 +80,7 @@ const finnishBoxData = [
     text: "Sosiaalisen median sisällöt",
     price: "5€/kpl + ALV 24%",
     hoverText:
-      "Sisältää sanaston, kieliopin, välimerkkien ja lauserakenteen oikoluvun ja korjaukset sekä mahdolliset sujuvuuden korjausehdotukset yhdelle julkaisulle. Enintään 140 merkkiä.",
+      "Sisältää sanaston, kieliopin, välimerkkien ja lauserakenteen oikoluvun ja korjaukset sekä mahdolliset sujuvuuden korjausehdotukset yhdelle julkaisulle. Enintään 280 merkkiä.",
   },
   {
     id: 2,
@@ -272,7 +272,7 @@ function App() {
                 component="span"
               >
                 {language === "en" ? (
-                  "Providing native English and Spanish proofreading. Language verification services are provided quickly and professionally. Tailored services are available for businesses and professionals from various fields, social media accounts, and individuals. Comprehensive text care includes not only grammar and vocabulary spelling but also the correction of articles, prepositions, and punctuation. Translation text can also be refined according to customer needs if necessary"
+                  "Providing native English and Spanish proofreading. Language verification services are provided quickly and professionally. Tailored services are available for businesses and professionals from various fields, social media accounts and individuals. Comprehensive text care includes not only grammar and vocabulary spelling but also the correction of articles, prepositions, and punctuation. Translation text can also be refined according to customer needs if necessary."
                 ) : language === "fi" ? (
                   <>
                     Natiivit englannin- ja espanjan kielen oikoluku- ja
@@ -288,7 +288,7 @@ function App() {
                     sopivaksi.
                   </>
                 ) : (
-                  "Providing native English and Spanish proofreading. Checking services are provided quickly and professionally. Tailored services are available for businesses and professionals from various fields, social media accounts, and individuals. Comprehensive text care includes not only grammar and vocabulary spelling but also the correction of articles, prepositions, and punctuation. Translation text can also be refined according to customer needs if necessary"
+                  "Providing native English and Spanish proofreading. Language verification services are provided quickly and professionally. Tailored services are available for businesses and professionals from various fields, social media accounts and individuals. Comprehensive text care includes not only grammar and vocabulary spelling but also the correction of articles, prepositions, and punctuation. Translation text can also be refined according to customer needs if necessary."
                 )}
               </Typography>
             </Box>
