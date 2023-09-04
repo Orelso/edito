@@ -430,22 +430,22 @@ function App() {
                 >
                   With a strong educational background and a passion for
                   technology, I am your go-to professional for a wide array of
-                  services including writing, editing, and proofreading. Based
+                  services, including writing, editing, and proofreading. Based
                   in Salo, Finland, I bring over seven years of teaching
-                  experience to the table, with roles as an English teacher in
-                  both Salo and Helsinki. My teaching experience extends
-                  internationally as well, having worked in China and the Czech
+                  experience to the table, having served as an English teacher
+                  in both Salo and Helsinki. My teaching experience also extends
+                  internationally, as I have worked in China and the Czech
                   Republic. This diverse background not only enhances my
                   language expertise but also deepens my understanding of
                   different cultures, making me a versatile asset in the field.
-                  My analytical skills are crucial for creating and reviewing
+                  My analytical skills are crucial in creating and reviewing
                   high-quality content. Fluent in both English and Spanish, I
-                  offer a comprehensive range of services such as proofreading,
+                  offer a comprehensive range of services, such as proofreading,
                   social media post enhancement, CV refinement, website content
-                  scrutiny, mentoring, language coaching, and voice-over work.
+                  scrutiny, mentoring, language coaching and voice-over work.
                   Whether you're a business or an individual, reach out today to
-                  find out how I can take your writing and communication efforts
-                  to the next level.
+                  find out how I can elevate your writing and communication
+                  efforts to the next level.
                 </Typography>
               </div>
             </Grid>
