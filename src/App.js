@@ -260,10 +260,17 @@ function App() {
                 width: "200px",
                 marginRight: "10px",
                 marginBottom: "10px",
+                borderRadius: "50%",
               }}
             />
             <Box>
-              <Typography style={customTypographyStyle} component="span">
+              <Typography
+                style={{
+                  ...customTypographyStyle,
+                  backgroundColor: "rgba(128, 128, 128, 0.5)", // Gray with 50% opacity
+                }}
+                component="span"
+              >
                 {language === "en" ? (
                   "Providing native English and Spanish proofreading. Language verification services are provided quickly and professionally. Tailored services are available for businesses and professionals from various fields, social media accounts, and individuals. Comprehensive text care includes not only grammar and vocabulary spelling but also the correction of articles, prepositions, and punctuation. Translation text can also be refined according to customer needs if necessary"
                 ) : language === "fi" ? (
