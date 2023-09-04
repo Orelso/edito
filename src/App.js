@@ -255,7 +255,6 @@ function App() {
           >
             <img
               src={editologo}
-              alt="About Us Image"
               style={{
                 width: "200px",
                 marginRight: "10px",
