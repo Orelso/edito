@@ -10,15 +10,10 @@ import {
   Grid,
   Link,
   Paper,
-  Drawer,
-  List,
-  ListItem,
   IconButton,
-  TextField,
 } from "@mui/material";
 import logo from "./lounea.png";
 import oimage from "./download.jpeg";
-import simage from "./sanni.jpeg";
 import editologo from "./edito.png";
 import mau from "./autokauppias.png";
 import background from "./Background.jpg";
@@ -129,36 +124,6 @@ function App() {
   const [isStickyAppBar, setIsStickyAppBar] = useState(false);
   const [language, setLanguage] = useState("en");
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [drawerOpen, setDrawerOpen] = useState(false);
-
-  // const drawerList = (
-  //   <List>
-  //     <ListItem>
-  //       <Button color="inherit" href="#about-us">
-  //         {language === "en" ? "About Us" : "Meistä"}
-  //       </Button>
-  //     </ListItem>
-  //     <ListItem>
-  //       <Button color="inherit" href="#pricing">
-  //         {language === "en" ? "Pricing" : "Hinnasto"}
-  //       </Button>
-  //     </ListItem>
-  //     <ListItem>
-  //       <Button color="inherit" href="#contacts">
-  //         {language === "en" ? "Contact" : "Ota yhteyttä"}
-  //       </Button>
-  //     </ListItem>
-  //     <ListItem>
-  //       <Button color="inherit" href="#work">
-  //         {language === "en" ? "Clients" : "Asiakkaitamme"}
-  //       </Button>
-  //     </ListItem>
-  //   </List>
-  // );
-
-  // const handleDrawerToggle = () => {
-  //   setDrawerOpen(!drawerOpen);
-  // };
 
   const images = [
     { src: mau, alt: "Company 1 Logo", width: "400px", height: "100px" },
@@ -172,7 +137,7 @@ function App() {
     }, 3000); // Change image every 3000ms (3 seconds)
 
     return () => clearTimeout(timer); // Cleanup on unmount
-  }, [currentImageIndex]);
+  }, [currentImageIndex, images.length]);
 
   const boxData = language === "en" ? englishBoxData : finnishBoxData;
 
@@ -191,8 +156,6 @@ function App() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
-  const tabNamesClass = language === "en" ? "tab-names-en" : "tab-names-fi";
 
   return (
     <div className={`App ${isStickyAppBar ? "sticky-app-bar" : ""}`}>
