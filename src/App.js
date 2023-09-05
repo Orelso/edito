@@ -415,7 +415,7 @@ function App() {
                       fontFamily: "Courier New",
                       color: "black",
                     }}
-                    title="Click Me"
+                    title="Click For Linkedin"
                   >
                     Orelso Vitam
                   </Link>
@@ -430,7 +430,7 @@ function App() {
                       fontFamily: "Courier New",
                       color: "black",
                     }}
-                    title="Click for more"
+                    title="Click To Email Me"
                   >
                     editofin@gmail.com
                   </Link>
@@ -444,7 +444,7 @@ function App() {
                       fontFamily: "Courier New",
                       color: "black",
                     }}
-                    title="Click Me"
+                    title="Click To Call Me"
                   >
                     +358 45 124 3334
                   </Link>
