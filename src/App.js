@@ -474,18 +474,14 @@ function App() {
                   proofreading services. Based in Salo, Finland, I bring to the
                   table over seven years of experience in teaching English in
                   both domestic and international settings, including stints in
-                  Salo, Helsinki, China, and the Czech Republic. This diverse
-                  teaching background not only bolsters my expertise in language
-                  but also gives me a nuanced understanding of various
-                  cultures—making me a versatile asset in any project. My strong
-                  analytical skills are instrumental for producing and reviewing
-                  high-caliber content. Proficient in both English and Spanish,
-                  I offer a full suite of services, from proofreading and social
-                  media optimization to CV enhancement and website content
-                  analysis. I also provide mentoring, language coaching, and
-                  voice-over services. Whether you're a business or an
-                  individual, contact me today to discover how I can elevate
-                  your written and spoken communications.
+                  Salo, Helsinki, China, and the Czech Republic. Proficient in
+                  both English and Spanish, I offer a full suite of services,
+                  from proofreading and social media optimization to CV
+                  enhancement and website content analysis. I also provide
+                  mentoring, language coaching, and voice-over services. Whether
+                  you're a business or an individual, contact me today to
+                  discover how I can elevate your written and spoken
+                  communications.
                 </Typography>
               </div>
             </Grid>
