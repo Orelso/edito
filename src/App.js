@@ -314,7 +314,7 @@ function App() {
                       hoveredBox === box.id
                         ? "0px 0px 15px 5px rgba(0,0,0,0.2)"
                         : "none",
-                    borderRadius: hoveredBox === box.id ? "15px" : "0px",
+                    borderRadius: "15px", // Constant borderRadius for both hovered and non-hovered states
                     bgcolor: "#272622",
                     color: "white",
                     fontFamily: "Courier New",
