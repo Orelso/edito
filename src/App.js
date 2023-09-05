@@ -314,7 +314,7 @@ function App() {
                       hoveredBox === box.id
                         ? "0px 0px 15px 5px rgba(0,0,0,0.2)"
                         : "none",
-                    borderRadius: "15px", // Constant borderRadius for both hovered and non-hovered states
+                    borderRadius: "15px",
                     bgcolor: "#272622",
                     color: "white",
                     fontFamily: "Courier New",
@@ -343,11 +343,20 @@ function App() {
                       </Typography>
                     ) : (
                       <>
-                        <Typography style={customTypographyStyle} variant="h6">
+                        <Typography
+                          style={{
+                            ...customTypographyStyle,
+                            textAlign: "center",
+                          }}
+                          variant="h6"
+                        >
                           {box.text}
                         </Typography>
                         <Typography
-                          style={customTypographyStyle}
+                          style={{
+                            ...customTypographyStyle,
+                            textAlign: "center",
+                          }}
                           variant="body1"
                         >
                           {box.price}
@@ -360,6 +369,7 @@ function App() {
             ))}
           </Grid>
         </section>
+
         {/* -------------------------------------------------------------------------------------------------------------------------------------------(Contacts)------------------------------------------------------------------------------------------------------------------------------------------------------------*/}
         <section
           id="contacts"
