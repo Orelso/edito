@@ -190,9 +190,16 @@ function App() {
           >
             {/* <MenuIcon /> */}
           </IconButton>
-          <Button color="inherit" onClick={toggleLanguage}>
+          <Button
+            onClick={toggleLanguage}
+            style={{
+              backgroundColor: "#272622", // Different shade of white
+              color: "white", // Text color, could be black or any other color
+            }}
+          >
             {language === "en" ? "Suomeksi" : "In English"}
           </Button>
+
           <Box
             style={{
               display: "flex",
@@ -217,14 +224,15 @@ function App() {
             </Button>
           </Box>
         </Toolbar>
-        {/* <Drawer anchor="left" open={drawerOpen} onClose={handleDrawerToggle}>
-          {drawerList}
-        </Drawer> */}
       </AppBar>
       <style jsx global>{`
         @media (max-width: 600px) {
           .MuiToolbar-root {
             flex-direction: column;
+            text-align: center;
+          }
+          .MuiButton-root {
+            font-size: 0.7rem !important;
           }
         }
       `}</style>
@@ -267,7 +275,7 @@ function App() {
               <Typography
                 style={{
                   ...customTypographyStyle,
-                  backgroundColor: "rgba(128, 128, 128, 0.5)", // Gray with 50% opacity
+                  backgroundColor: "rgba(50, 50, 50, 0.5)", // Even darker shade of gray with 50% opacity
                 }}
                 component="span"
               >
@@ -451,24 +459,23 @@ function App() {
                   variant="outlined"
                   style={{ width: "80%", fontFamily: "Courier New" }}
                 >
-                  With a strong educational background and a passion for
-                  technology, I am your go-to professional for a wide array of
-                  services, including writing, editing, and proofreading. Based
-                  in Salo, Finland, I bring over seven years of teaching
-                  experience to the table, having served as an English teacher
-                  in both Salo and Helsinki. My teaching experience also extends
-                  internationally, as I have worked in China and the Czech
-                  Republic. This diverse background not only enhances my
-                  language expertise but also deepens my understanding of
-                  different cultures, making me a versatile asset in the field.
-                  My analytical skills are crucial in creating and reviewing
-                  high-quality content. Fluent in both English and Spanish, I
-                  offer a comprehensive range of services, such as proofreading,
-                  social media post enhancement, CV refinement, website content
-                  scrutiny, mentoring, language coaching and voice-over work.
-                  Whether you're a business or an individual, reach out today to
-                  find out how I can elevate your writing and communication
-                  efforts to the next level.
+                  As a seasoned English teacher with a passion for technology, I
+                  specialize in a wide range of writing, editing, and
+                  proofreading services. Based in Salo, Finland, I bring to the
+                  table over seven years of experience in teaching English in
+                  both domestic and international settings, including stints in
+                  Salo, Helsinki, China, and the Czech Republic. This diverse
+                  teaching background not only bolsters my expertise in language
+                  but also gives me a nuanced understanding of various
+                  cultures—making me a versatile asset in any project. My strong
+                  analytical skills are instrumental for producing and reviewing
+                  high-caliber content. Proficient in both English and Spanish,
+                  I offer a full suite of services, from proofreading and social
+                  media optimization to CV enhancement and website content
+                  analysis. I also provide mentoring, language coaching, and
+                  voice-over services. Whether you're a business or an
+                  individual, contact me today to discover how I can elevate
+                  your written and spoken communications.
                 </Typography>
               </div>
             </Grid>
