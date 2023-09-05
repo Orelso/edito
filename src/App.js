@@ -486,7 +486,7 @@ function App() {
                 margin: "20px",
               }}
               src="https://lounea.fi/themes/custom/lounea-theme/images/logo.png"
-              alt="Your Image"
+              alt="logo"
             />
             <img
               style={{
