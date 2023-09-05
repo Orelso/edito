@@ -94,7 +94,7 @@ const finnishBoxData = [
     text: "Sisältöoikoluku",
     price: "20€/sivu, otsikkosivut ilmaiseksi + ALV 24%",
     hoverText:
-      "Eri tekstilajien kuten artikkeleiden, sisältötekstien, opetusmateriaalien, mainosten, tuoteselosteiden, ruokalistojen oikoluku ja korjaus. Sisältää sanaston, kieliopin, välimerkkien ja lauserakenteen oikoluvun ja korjaukset sekä mahdolliset sujuvuuden korjausehdotukset",
+      "Eri tekstilajien kuten artikkeleiden, sisältötekstien, opetusmateriaalien, mainosten, tuoteselosteiden, ruokalistojen oikoluku ja korjaus. Sisältää sanaston, kieliopin, välimerkkien ja lauserakenteen oikoluvun ja korjaukset sekä mahdolliset sujuvuuden korjausehdotukset.",
   },
   {
     id: 4,
@@ -108,7 +108,7 @@ const finnishBoxData = [
     text: "Tuutorointi ja valmennus",
     price: "Yksityishenkilöt: 37€ + ALV 24% Ryhmät: Pyydä tarjous.",
     hoverText:
-      "Tailored native conversation and pronunciation coaching for groups and individuals, offered both in-person and online according to the customer's needs.",
+      "Asiakkaan tarpeisiin räätälöityä natiivia keskustelu- ja ääntämisvalmennusta lähi- ja etäopetuksena ryhmille ja yksityishenkilöille.",
   },
   {
     id: 6,
@@ -350,11 +350,14 @@ function App() {
             ))}
           </Grid>
         </section>
-
         {/* -------------------------------------------------------------------------------------------------------------------------------------------(Contacts)------------------------------------------------------------------------------------------------------------------------------------------------------------*/}
         <section
           id="contacts"
-          style={{ textAlign: "center", fontFamily: "Courier New" }}
+          style={{
+            textAlign: "center",
+            fontFamily: "Courier New",
+            paddingBottom: "30px", // Added padding to the bottom
+          }}
         >
           <Typography variant="h4" mb={2} style={{ fontFamily: "Courier New" }}>
             {language === "en" ? "Contact" : "Ota yhteyttä"}
@@ -451,36 +454,41 @@ function App() {
             </Grid>
           </Grid>
         </section>
-
         {/* -------------------------------------------------------------------------------------------------------------------------------------------(Worked With)------------------------------------------------------------------------------------------------------------------------------------------------------------*/}
-
-        <section id="work">
-          <Typography
-            variant="h4"
-            mb={2}
-            style={{
-              padding: "20px 0",
-              borderTop: "1px solid #ddd",
-              textAlign: "center",
-            }}
-          >
-            {language === "en" ? "Customers" : "Asiakkaitamme"}
-          </Typography>
-          <Grid container spacing={2}>
-            <Grid item xs={12}>
-              <Box display="flex" alignItems="center" justifyContent="center">
-                <img
-                  src={images[currentImageIndex].src}
-                  alt={images[currentImageIndex].alt}
-                  style={{
-                    width: images[currentImageIndex].width, // Using the width from the images array
-                    height: images[currentImageIndex].height,
-                  }}
-                />
-              </Box>
-            </Grid>
-          </Grid>
-        </section>
+        <div
+          style={{
+            marginTop: "20px",
+            padding: "20px 0",
+            borderTop: "1px solid #ddd",
+            textAlign: "center",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            margin: "0",
+          }}
+        >
+          <div style={{ textAlign: "center" }}>
+            <img
+              style={{
+                maxWidth: "100%",
+                height: "auto",
+                width: "200px",
+                margin: "20px",
+              }}
+              src="https://lounea.fi/themes/custom/lounea-theme/images/logo.png"
+              alt="Your Image"
+            />
+            <img
+              style={{
+                maxWidth: "100%",
+                height: "auto",
+                margin: "20px",
+              }}
+              src="https://autokauppias.fi/wp-content/themes/startti/svg/logo.svg"
+              alt="Your Image2"
+            />
+          </div>
+        </div>
       </Container>
       {/* -------------------------------------------------------------------------------------------------------------------------------------------(Footer)------------------------------------------------------------------------------------------------------------------------------------------------------------*/}
       <footer
