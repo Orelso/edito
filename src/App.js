@@ -305,12 +305,16 @@ function App() {
                   onMouseLeave={() => setHoveredBox(null)}
                   sx={{
                     height: 200,
-                    width: "90%", // Make the box take full width on mobile
+                    width: "90%",
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "center",
                     justifyContent: "center",
-                    boxShadow: 3,
+                    boxShadow:
+                      hoveredBox === box.id
+                        ? "0px 0px 15px 5px rgba(0,0,0,0.2)"
+                        : "none",
+                    borderRadius: hoveredBox === box.id ? "15px" : "0px",
                     bgcolor: "#272622",
                     color: "white",
                     fontFamily: "Courier New",
@@ -328,7 +332,13 @@ function App() {
                     }}
                   >
                     {hoveredBox === box.id ? (
-                      <Typography style={customTypographyStyle} variant="body2">
+                      <Typography
+                        style={{
+                          ...customTypographyStyle,
+                          textAlign: "center",
+                        }}
+                        variant="body2"
+                      >
                         {box.hoverText}
                       </Typography>
                     ) : (
