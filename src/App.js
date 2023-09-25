@@ -24,6 +24,9 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import EmailIcon from "@mui/icons-material/Email";
 // import MenuIcon from "@mui/icons-material/Menu";
+import { Dialog, DialogContent } from "@mui/material";
+import EmailBill from "./ContactFormDialog"; // Adjust the path as needed
+import DialogActions from "@mui/material/DialogActions";
 
 const customTypographyStyle = {
   fontFamily: "'Courier New'",
@@ -124,12 +127,21 @@ function App() {
   const [isStickyAppBar, setIsStickyAppBar] = useState(false);
   const [language, setLanguage] = useState("en");
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [open, setOpen] = useState(false);
 
   const images = [
     { src: mau, alt: "Company 1 Logo", width: "400px", height: "100px" },
     { src: logo, alt: "Company 2 Logo", width: "100px" },
     // Add more images here...
   ];
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -169,47 +181,41 @@ function App() {
           padding: 0,
         }}
       >
-        <Toolbar
-          style={{
-            justifyContent: "space-between",
-            display: "flex",
-            flexDirection: "row",
-            flexWrap: "wrap",
-          }}
-        >
+        <Toolbar className="customToolbar">
           <IconButton
             edge="start"
             color="inherit"
             aria-label="menu"
             className="hamburger"
-            // onClick={handleDrawerToggle}
-            style={{
-              display: "none",
-              "@media (max-width: 600px)": { display: "block" },
-            }}
           >
-            {/* <MenuIcon /> */}
+            {/* Your hamburger menu icon */}
           </IconButton>
-          <Button
-            onClick={toggleLanguage}
-            style={{
-              backgroundColor: "#272622", // Different shade of white
-              color: "white", // Text color, could be black or any other color
-            }}
-          >
-            {language === "en" ? "Suomeksi" : "In English"}
-          </Button>
 
-          <Box
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              flexWrap: "wrap",
-              "@media (max-width: 600px)": {
-                display: "none",
-              },
-            }}
-          >
+          <Box className="centered-box">
+            <Button
+              onClick={toggleLanguage}
+              style={{
+                backgroundColor: "#272622",
+                color: "white",
+              }}
+            >
+              {language === "en" ? "Suomeksi" : "In English"}
+            </Button>
+
+            <Button
+              variant="contained"
+              onClick={handleClickOpen}
+              style={{
+                backgroundColor: "#93C572",
+                color: "white",
+                marginLeft: "10px",
+              }}
+            >
+              Maksulomake
+            </Button>
+          </Box>
+
+          <Box className="centered-box">
             <Button color="inherit" href="#about-us">
               {language === "en" ? "About Us" : "Meistä"}
             </Button>
@@ -226,17 +232,41 @@ function App() {
         </Toolbar>
       </AppBar>
       <style jsx global>{`
+        .customToolbar {
+          justify-content: space-between;
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+        }
         @media (max-width: 600px) {
-          .MuiToolbar-root {
-            flex-direction: column;
-            text-align: center;
+          .customToolbar {
+            flex-direction: column !important;
+            align-items: center !important;
+            justify-content: center !important;
           }
-          .MuiButton-root {
+          .customToolbar .MuiButton-root {
             font-size: 0.7rem !important;
           }
         }
       `}</style>
+
       {/* -------------------------------------------------------------------------------------------------------------------------------------------(About Us)------------------------------------------------------------------------------------------------------------------------------------------------------------*/}
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="form-dialog-title"
+      >
+        <DialogContent>
+          <Container component="main">
+            <EmailBill />
+          </Container>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose} color="primary">
+            Cancel
+          </Button>
+        </DialogActions>
+      </Dialog>
       <Container
         maxWidth="lg"
         style={{ paddingBottom: "40px", paddingTop: "40px" }}
@@ -280,7 +310,7 @@ function App() {
                 component="span"
               >
                 {language === "en" ? (
-                  "Providing native English and Spanish proofreading. Language verification services are provided quickly and professionally. Tailored services are available for businesses and professionals from various fields, social media accounts and individuals. Comprehensive text care includes not only grammar and vocabulary spelling but also the correction of articles, prepositions, and punctuation. Translation text can also be refined according to customer needs if necessary."
+                  "Providing native English and Spanish proofreading. Language verification services are provided quickly and professionally. Tailored services are available for businesses and professionals from various fields, social media accounts and individuals. Comprehensive text care includes not only grammar and vocabulary spelling but also the correction of articles, prepositions, and punctuation. Translation text can also be refined according to customer needs if necessary. Our services leverage advanced AI technology for unmatched accuracy and efficiency."
                 ) : language === "fi" ? (
                   <>
                     Natiivit englannin- ja espanjan kielen oikoluku- ja
@@ -296,7 +326,7 @@ function App() {
                     sopivaksi.
                   </>
                 ) : (
-                  "Providing native English and Spanish proofreading. Language verification services are provided quickly and professionally. Tailored services are available for businesses and professionals from various fields, social media accounts and individuals. Comprehensive text care includes not only grammar and vocabulary spelling but also the correction of articles, prepositions, and punctuation. Translation text can also be refined according to customer needs if necessary."
+                  "Providing native English and Spanish proofreading. Language verification services are provided quickly and professionally. Tailored services are available for businesses and professionals from various fields, social media accounts and individuals. Comprehensive text care includes not only grammar and vocabulary spelling but also the correction of articles, prepositions, and punctuation. Translation text can also be refined according to customer needs if necessary. Our services leverage advanced AI technology for unmatched accuracy and efficiency."
                 )}
               </Typography>
             </Box>
@@ -431,7 +461,7 @@ function App() {
                   </Link>
                 </strong>
               </Typography>
-              <Typography>CEO</Typography>
+              <Typography>Founder</Typography>
               <Typography style={{ fontFamily: "Courier New" }}>
                 <strong>
                   <Link
@@ -488,40 +518,42 @@ function App() {
           </Grid>
         </section>
         {/* -------------------------------------------------------------------------------------------------------------------------------------------(Worked With)------------------------------------------------------------------------------------------------------------------------------------------------------------*/}
-        <div
-          style={{
-            marginTop: "20px",
-            padding: "20px 0",
-            borderTop: "1px solid #ddd",
-            textAlign: "center",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            margin: "0",
-          }}
-        >
-          <div style={{ textAlign: "center" }}>
-            <img
-              style={{
-                maxWidth: "100%",
-                height: "auto",
-                width: "200px",
-                margin: "20px",
-              }}
-              src="https://lounea.fi/themes/custom/lounea-theme/images/logo.png"
-              alt="logo"
-            />
-            <img
-              style={{
-                maxWidth: "100%",
-                height: "auto",
-                margin: "20px",
-              }}
-              src="https://autokauppias.fi/wp-content/themes/startti/svg/logo.svg"
-              alt="Your Image2"
-            />
+        <section id="work">
+          <div
+            style={{
+              marginTop: "20px",
+              padding: "20px 0",
+              borderTop: "1px solid #ddd",
+              textAlign: "center",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              margin: "0",
+            }}
+          >
+            <div style={{ textAlign: "center" }}>
+              <img
+                style={{
+                  maxWidth: "100%",
+                  height: "auto",
+                  width: "200px",
+                  margin: "20px",
+                }}
+                src="https://lounea.fi/themes/custom/lounea-theme/images/logo.png"
+                alt="logo"
+              />
+              <img
+                style={{
+                  maxWidth: "100%",
+                  height: "auto",
+                  margin: "20px",
+                }}
+                src="https://autokauppias.fi/wp-content/themes/startti/svg/logo.svg"
+                alt="Your Image2"
+              />
+            </div>
           </div>
-        </div>
+        </section>
       </Container>
       {/* -------------------------------------------------------------------------------------------------------------------------------------------(Footer)------------------------------------------------------------------------------------------------------------------------------------------------------------*/}
       <footer
